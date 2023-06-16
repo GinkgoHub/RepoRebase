@@ -16,17 +16,17 @@ jobs:
 
        - name: Syncing repo & rebaseing.
          run: |
-             git clone https://github.com/LineageOS/android_vendor_lineage.git -b lineage-18.1 temporary
+             git clone https://github.com/LineageOS/android_frameworks_base.git -b lineage-18.1 temporary
              cd temporary
-             git remote rm origin && git remote add origin https://github.com/ModageOS/android_vendor_lineage.git
+             git remote rm origin && git remote add origin https://github.com/ModageOS/android_frameworks_base.git
              git fetch origin lineage-18.1
-             git cherry-pick 70f8b72e14d71252f7a23d4549692b4c63e8c1c3
-             git cherry-pick 70f8b72e14d71252f7a23d4549692b4c63e8c1c3..a5384c533560a9f1438e66115ceb443aeae381df
+             git cherry-pick bc909ab5dea13cb72b3b8cdb0d7b0159d698d85b
+             git cherry-pick bc909ab5dea13cb72b3b8cdb0d7b0159d698d85b..3354633ad4db21d256be49e50be915e93124f1d4
 
        - name: Pushing commit to repo.
          uses: ad-m/github-push-action@v0.6.0
          with:
            github_token: ${{ secrets.SUPERSECRET }}
-           repository: ModageOS/android_vendor_lineage
+           repository: ModageOS/android_frameworks_base
            directory: temporary
            branch: New_Update
