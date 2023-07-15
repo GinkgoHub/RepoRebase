@@ -20,8 +20,11 @@ jobs:
              cd temporary
              git remote rm origin && git remote add origin https://github.com/ModageOS/android_frameworks_base.git
              git fetch origin lineage-18.1
-             git cherry-pick bc909ab5dea13cb72b3b8cdb0d7b0159d698d85b
-             git cherry-pick bc909ab5dea13cb72b3b8cdb0d7b0159d698d85b..3354633ad4db21d256be49e50be915e93124f1d4
+             git cherry-pick 64810d9602b57b084adb8f9d4e1d35bcf1db5003
+             git cherry-pick 64810d9602b57b084adb8f9d4e1d35bcf1db5003..58fa53657bdb1438e9b9ecf81d7cb70681d9df70
+             git cherry-pick 20146e0711d23be9a5d2697843a3893dd14d87fd
+             git cherry-pick f9a07f20446f396dba6de94a83649a45efdf6c79
+             git cherry-pick f9a07f20446f396dba6de94a83649a45efdf6c79..84aba42458b79680fcd1323ccdc5cf1f1b46d072
 
        - name: Pushing commit to repo.
          uses: ad-m/github-push-action@v0.6.0
