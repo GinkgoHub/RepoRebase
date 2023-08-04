@@ -16,18 +16,15 @@ jobs:
 
        - name: Syncing repo & rebaseing.
          run: |
-             git clone https://github.com/LineageOS/android_frameworks_base.git -b lineage-18.1 temporary
+             git clone https://github.com/ModageOS/android_kernel_xiaomi_sm6125.git -b lineage-18.1-ksu temporary
              cd temporary
-             git remote rm origin && git remote add origin https://github.com/ModageOS/android_frameworks_base.git
-             git fetch origin lineage-18.1
-             git cherry-pick 2fa1072e8c92e7cb4b0a48268617535190a81f7d
-             git cherry-pick 2fa1072e8c92e7cb4b0a48268617535190a81f7d..5cbf92d4813f4a940473b0e01f8546e90fc42c4a
+             git reset --hard eab6acb610b6d0e176fb2d5605c38312f263a06b
 
        - name: Pushing commit to repo.
          uses: ad-m/github-push-action@v0.6.0
          with:
            github_token: ${{ secrets.SUPERSECRET }}
-           repository: ModageOS/android_frameworks_base
+           repository: ModageOS/android_kernel_xiaomi_sm6125
            directory: temporary
-           branch: lineage-18.1
+           branch: lineage-18.1-ksu
            force: true
